@@ -1,8 +1,6 @@
 package com.api.rentx.services.users;
 
 import java.util.Objects;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
 
 import com.api.rentx.models.UserModel;
