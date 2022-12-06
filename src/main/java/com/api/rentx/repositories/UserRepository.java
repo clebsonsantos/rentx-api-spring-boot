@@ -9,4 +9,6 @@ import com.api.rentx.models.*;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, UUID> {
   boolean existsByEmail(String email);
+
+  UserModel findById(String userId);
 }

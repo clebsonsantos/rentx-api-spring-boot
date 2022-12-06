@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,11 +27,12 @@ public class UserController {
   }
 
   @PostMapping
-  public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid UserDTO userDTO) {
+  public ResponseEntity<Object> saveUser(@RequestBody @Valid UserDTO userDTO) {
     if (createUserService.existsByEmail(userDTO.getEmail())) {
       return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already exists");
     }
     var userModel = new UserModel();
+    userDTO.setPassword(new BCryptPasswordEncoder().encode(userDTO.getPassword()));
     userDTO
         .setAvatar("https://ui-avatars.com/api/?name=" + userDTO.getName() + "&length=1&bold=true&background=ffffff");
     BeanUtils.copyProperties(userDTO, userModel);
