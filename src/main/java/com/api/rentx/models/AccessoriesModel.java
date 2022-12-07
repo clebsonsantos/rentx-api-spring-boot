@@ -1,15 +1,12 @@
 package com.api.rentx.models;
 
-import java.util.Collection;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,9 +23,6 @@ public class AccessoriesModel {
 
   @Column(nullable = false)
   private String type;
-
-  @ManyToMany(mappedBy = "accessories", fetch = FetchType.EAGER)
-  private Collection<CarModel> cars;
 
   public static long getSerialversionuid() {
     return serialVersionUID;
@@ -56,14 +50,6 @@ public class AccessoriesModel {
 
   public void setType(String type) {
     this.type = type;
-  }
-
-  public Collection<CarModel> getCars() {
-    return cars;
-  }
-
-  public void setCars(Collection<CarModel> cars) {
-    this.cars = cars;
   }
 
 }
