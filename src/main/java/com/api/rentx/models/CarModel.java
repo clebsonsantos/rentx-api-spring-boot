@@ -1,7 +1,7 @@
 package com.api.rentx.models;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Collection;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -53,7 +53,7 @@ public class CarModel {
 
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "CARS_ACCESSORIES", joinColumns = @JoinColumn(name = "car_id"), inverseJoinColumns = @JoinColumn(name = "accessorie_id"))
-  private List<AccessoriesModel> accessories;
+  private Collection<AccessoriesModel> accessories;
 
   public static long getSerialversionuid() {
     return serialVersionUID;
@@ -139,11 +139,11 @@ public class CarModel {
     this.updated_at = updated_at;
   }
 
-  public List<AccessoriesModel> getAccessories() {
+  public Collection<AccessoriesModel> getAccessories() {
     return accessories;
   }
 
-  public void setAccessories(List<AccessoriesModel> accessories) {
+  public void setAccessories(Collection<AccessoriesModel> accessories) {
     this.accessories = accessories;
   }
 

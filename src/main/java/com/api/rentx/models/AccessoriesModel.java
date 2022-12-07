@@ -1,6 +1,6 @@
 package com.api.rentx.models;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -28,7 +28,7 @@ public class AccessoriesModel {
   private String type;
 
   @ManyToMany(mappedBy = "accessories", fetch = FetchType.EAGER)
-  private List<CarModel> cars;
+  private Collection<CarModel> cars;
 
   public static long getSerialversionuid() {
     return serialVersionUID;
@@ -58,11 +58,11 @@ public class AccessoriesModel {
     this.type = type;
   }
 
-  public List<CarModel> getCars() {
+  public Collection<CarModel> getCars() {
     return cars;
   }
 
-  public void setCars(List<CarModel> cars) {
+  public void setCars(Collection<CarModel> cars) {
     this.cars = cars;
   }
 
