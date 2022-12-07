@@ -6,7 +6,6 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,9 +50,13 @@ public class CarModel {
   @Column(nullable = false)
   private LocalDateTime updated_at;
 
-  @ManyToMany(fetch = FetchType.EAGER)
+  @ManyToMany()
   @JoinTable(name = "CARS_ACCESSORIES", joinColumns = @JoinColumn(name = "car_id"), inverseJoinColumns = @JoinColumn(name = "accessorie_id"))
   private Collection<AccessoriesModel> accessories;
+
+  @ManyToMany()
+  @JoinTable(name = "CARS_PHOTOS", joinColumns = @JoinColumn(name = "car_id"), inverseJoinColumns = @JoinColumn(name = "photo_id"))
+  private Collection<PhotosModel> photos;
 
   public static long getSerialversionuid() {
     return serialVersionUID;
@@ -145,6 +148,14 @@ public class CarModel {
 
   public void setAccessories(Collection<AccessoriesModel> accessories) {
     this.accessories = accessories;
+  }
+
+  public Collection<PhotosModel> getPhotos() {
+    return photos;
+  }
+
+  public void setPhotos(Collection<PhotosModel> photos) {
+    this.photos = photos;
   }
 
 }

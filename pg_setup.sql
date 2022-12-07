@@ -1,38 +1,38 @@
-drop table accessories;
-drop table photos;
-drop table cars;
+-- drop table accessories;
+-- drop table photos;
+-- drop table cars;
 
-CREATE TABLE
-  cars (
-    id UUID,
-    name varchar(255),
-    brand varchar(255),
-    about varchar(255),
-    period varchar(255),
-    price numeric NOT NULL,
-    fuel_type varchar(255),
-    thumbnail varchar(255),
-    created_at timestamp NOT NULL DEFAULT (now()),
-    updated_at timestamp NOT NULL DEFAULT (now())
-  );
+-- CREATE TABLE
+--   cars (
+--     id UUID,
+--     name varchar(255),
+--     brand varchar(255),
+--     about varchar(255),
+--     period varchar(255),
+--     price numeric NOT NULL,
+--     fuel_type varchar(255),
+--     thumbnail varchar(255),
+--     created_at timestamp NOT NULL DEFAULT (now()),
+--     updated_at timestamp NOT NULL DEFAULT (now())
+--   );
 
-create table accessories (id UUID, type varchar(255), name varchar(255));
-create table photos (id UUID, photo varchar(255));
+-- create table accessories (id UUID, type varchar(255), name varchar(255));
+-- create table photos (id UUID, photo varchar(255));
 
-ALTER TABLE
-  public.cars
-ADD
-  CONSTRAINT cars_pkey PRIMARY KEY (id);
+-- ALTER TABLE
+--   public.cars
+-- ADD
+--   CONSTRAINT cars_pkey PRIMARY KEY (id);
 
-ALTER TABLE
-  public.accessories
-ADD
-  CONSTRAINT accessories_pkey PRIMARY KEY (id);
+-- ALTER TABLE
+--   public.accessories
+-- ADD
+--   CONSTRAINT accessories_pkey PRIMARY KEY (id);
 
-ALTER TABLE
-  public.photos
-ADD
-  CONSTRAINT photos_pkey PRIMARY KEY (id);
+-- ALTER TABLE
+--   public.photos
+-- ADD
+--   CONSTRAINT photos_pkey PRIMARY KEY (id);
 
 insert into cars (about, brand, created_at, fuel_type, id, name, period, price, thumbnail, updated_at) values 
     ('O carro ainda tem sistema de tração nas quatro rodas Quattro com diferencial traseiro esportivo de série. De acordo com a Audi, ele faz o mesmo em 3,8 segundos na Sportback.', 'Audi', CURRENT_TIMESTAMP, 'electric_motor', '535e8de8-721b-4bac-8b72-7d29be7da467', 'RS 5 Coupé', 'Ao dia', 120, 'https://storage.googleapis.com/golden-wind/ignite/react-native/thumbnails/1.png', CURRENT_TIMESTAMP),
@@ -81,24 +81,29 @@ insert into accessories (id, name, type) values
  ('a835844c-e7f3-492f-86e2-8ec26251da5b', '5 pessoas', 'seats');
       
   
-  INSERT INTO photos (id, photo) VALUES
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/1.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/2.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/3.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/4.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/5.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/6.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/7.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/8.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/9.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/10.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/11.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/12.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/13.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/14.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/15.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/16.png'),
-      (gen_random_uuid(), 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/17.png');
+INSERT INTO photos (id, photo) VALUES
+  ('38ea722f-5296-4cd8-a00f-d5341c538a2e', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/1.png'),
+  ('a460270e-0c0c-4757-ba96-c146a39d19c9', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/2.png'),
+  ('69345831-4e44-45d4-8eb2-71a88348f117', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/3.png'),
+  ('9bb292a0-dd88-494f-8073-dd20815e0e86', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/4.png'),
+  ('06a7a2d3-5fb5-49eb-8fba-49141a2dca0b', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/5.png'),
+  ('a66597ac-ad90-49f0-8cfa-be85f9d285b2', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/6.png'),
+  ('af7dbe5d-e2dd-49a1-a036-57fa963093fd', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/7.png'),
+  ('824b0e28-3a09-4bb8-a917-186ccdc85779', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/8.png'),
+  ('0f7ef48b-b447-43fc-b776-be39d08b9451', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/9.png'),
+  ('a6a3038d-81b5-449a-921e-3e9a13cd5a0e', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/10.png'),
+  ('404d9db0-fa8a-46db-936f-f20eb7f6503f', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/11.png'),
+  ('c1fd3b4c-8414-4f23-9a65-c15dbcfee230', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/12.png'),
+  ('3a146128-76a4-4c14-83fc-6a070b0f6fe6', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/13.png'),
+  ('5bbeb780-b61e-400b-b071-5b03d6f639ae', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/14.png'),
+  ('8d8a64a9-3c17-4f21-ac67-ac29065519ca', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/15.png'),
+  ('eae2d4ea-ccaa-42bd-aec8-935101d5a8f3', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/16.png'),
+  ('d3d43188-89b2-43bc-b17c-c0a10e300128', 'https://storage.googleapis.com/golden-wind/ignite/react-native/images/17.png');
 
 insert into cars_accessories (car_id, accessorie_id) values
-('49983f6c-a46a-4dfd-a86e-425b8c72e086', '03b97309-c7e7-438f-ae69-80e786f4f414');
+('49983f6c-a46a-4dfd-a86e-425b8c72e086', '03b97309-c7e7-438f-ae69-80e786f4f414'),
+('ffb71f55-818a-48b1-b7d2-2efc406ede25', 'e39620b8-f69c-4f0f-87e4-44f1c4e99c13');
+
+insert into cars_photos (car_id, photo_id) values
+('49983f6c-a46a-4dfd-a86e-425b8c72e086', '38ea722f-5296-4cd8-a00f-d5341c538a2e'),
+('ffb71f55-818a-48b1-b7d2-2efc406ede25', '3a146128-76a4-4c14-83fc-6a070b0f6fe6');
