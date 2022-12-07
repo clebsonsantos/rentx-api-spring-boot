@@ -1,5 +1,8 @@
 package com.api.rentx.models;
 
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -7,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +44,16 @@ public class CarModel {
 
   @Column(nullable = false)
   private Number price;
+
+  @Column(nullable = false)
+  private LocalDateTime created_at;
+
+  @Column(nullable = false)
+  private LocalDateTime updated_at;
+
+  @ManyToMany
+  @JoinTable(name = "CARS_ACCESSORIES", joinColumns = @JoinColumn(name = "car_fk"), inverseJoinColumns = @JoinColumn(name = "accessorie_fk"))
+  List<AcessoriesModel> accessories;
 
   public static long getSerialversionuid() {
     return serialVersionUID;
@@ -105,6 +121,30 @@ public class CarModel {
 
   public void setPrice(Number price) {
     this.price = price;
+  }
+
+  public LocalDateTime getCreated_at() {
+    return created_at;
+  }
+
+  public void setCreated_at(LocalDateTime created_at) {
+    this.created_at = created_at;
+  }
+
+  public LocalDateTime getUpdated_at() {
+    return updated_at;
+  }
+
+  public void setUpdated_at(LocalDateTime updated_at) {
+    this.updated_at = updated_at;
+  }
+
+  public List<AcessoriesModel> getAcessories() {
+    return accessories;
+  }
+
+  public void setAcessories(List<AcessoriesModel> accessories) {
+    this.accessories = accessories;
   }
 
 }

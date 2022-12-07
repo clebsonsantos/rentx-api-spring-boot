@@ -9,5 +9,4 @@ import com.api.rentx.models.CarModel;
 
 @Repository
 public interface CarRepository extends JpaRepository<CarModel, UUID> {
-  CarModel findById(String carId);
 }

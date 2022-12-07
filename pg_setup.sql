@@ -1,3 +1,7 @@
+drop table cars;
+drop table accessories;
+drop table photos;
+
 CREATE TABLE
   cars (
     id UUID,
@@ -14,6 +18,21 @@ CREATE TABLE
 
 create table accessories (id UUID, car_id UUID, type varchar(255), name varchar(255));
 create table photos (id UUID, car_id UUID, photo varchar(255));
+
+ALTER TABLE
+  public.cars
+ADD
+  CONSTRAINT cars_pkey PRIMARY KEY (id);
+
+ALTER TABLE
+  public.accessories
+ADD
+  CONSTRAINT accessories_pkey PRIMARY KEY (id);
+
+ALTER TABLE
+  public.photos
+ADD
+  CONSTRAINT photos_pkey PRIMARY KEY (id);
 
 insert into cars (about, brand, created_at, fuel_type, id, name, period, price, thumbnail, updated_at) values 
     ('O carro ainda tem sistema de tração nas quatro rodas Quattro com diferencial traseiro esportivo de série. De acordo com a Audi, ele faz o mesmo em 3,8 segundos na Sportback.', 'Audi', CURRENT_TIMESTAMP, 'electric_motor', '535e8de8-721b-4bac-8b72-7d29be7da467', 'RS 5 Coupé', 'Ao dia', 120, 'https://storage.googleapis.com/golden-wind/ignite/react-native/thumbnails/1.png', CURRENT_TIMESTAMP),
