@@ -13,8 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ACESSORIES")
-public class AcessoriesModel {
+@Table(name = "ACCESSORIES")
+public class AccessoriesModel {
   private static final long serialVersionUID = 1L;
 
   @Id
@@ -27,8 +27,8 @@ public class AcessoriesModel {
   @Column(nullable = false)
   private String type;
 
-  @ManyToMany(mappedBy = "accessories", fetch = FetchType.LAZY)
-  List<CarModel> cars;
+  @ManyToMany(mappedBy = "accessories", fetch = FetchType.EAGER)
+  private List<CarModel> cars;
 
   public static long getSerialversionuid() {
     return serialVersionUID;

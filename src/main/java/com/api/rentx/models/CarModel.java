@@ -1,12 +1,12 @@
 package com.api.rentx.models;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,7 +43,7 @@ public class CarModel {
   private String thumbnail;
 
   @Column(nullable = false)
-  private Number price;
+  private Long price;
 
   @Column(nullable = false)
   private LocalDateTime created_at;
@@ -51,9 +51,9 @@ public class CarModel {
   @Column(nullable = false)
   private LocalDateTime updated_at;
 
-  @ManyToMany
-  @JoinTable(name = "CARS_ACCESSORIES", joinColumns = @JoinColumn(name = "car_fk"), inverseJoinColumns = @JoinColumn(name = "accessorie_fk"))
-  List<AcessoriesModel> accessories;
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "CARS_ACCESSORIES", joinColumns = @JoinColumn(name = "car_id"), inverseJoinColumns = @JoinColumn(name = "accessorie_id"))
+  private List<AccessoriesModel> accessories;
 
   public static long getSerialversionuid() {
     return serialVersionUID;
@@ -115,11 +115,11 @@ public class CarModel {
     this.thumbnail = thumbnail;
   }
 
-  public Number getPrice() {
+  public Long getPrice() {
     return price;
   }
 
-  public void setPrice(Number price) {
+  public void setPrice(Long price) {
     this.price = price;
   }
 
@@ -139,11 +139,11 @@ public class CarModel {
     this.updated_at = updated_at;
   }
 
-  public List<AcessoriesModel> getAcessories() {
+  public List<AccessoriesModel> getAccessories() {
     return accessories;
   }
 
-  public void setAcessories(List<AcessoriesModel> accessories) {
+  public void setAccessories(List<AccessoriesModel> accessories) {
     this.accessories = accessories;
   }
 
