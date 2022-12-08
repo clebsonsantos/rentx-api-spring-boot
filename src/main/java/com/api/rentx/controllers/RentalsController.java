@@ -1,5 +1,6 @@
 package com.api.rentx.controllers;
 
+import java.util.Date;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
@@ -37,10 +38,8 @@ public class RentalsController {
     var rentalModel = new RentalsModel();
     BeanUtils.copyProperties(rentals, rentalModel);
 
-    LocalDateTime startDate = LocalDateTime.ofInstant(rentals.getStart_date().toInstant(), ZoneId.of("UTC"));
-    LocalDateTime endDate = LocalDateTime.ofInstant(rentals.getEnd_date().toInstant(), ZoneId.of("UTC"));
-    rentalModel.setStart_date(startDate);
-    rentalModel.setEnd_date(endDate);
+    rentalModel.setStart_date(this.convertDateTime(rentals.getStart_date()));
+    rentalModel.setEnd_date(this.convertDateTime(rentals.getEnd_date()));
     rentalModel.setCreated_at(LocalDateTime.now(ZoneId.of("UTC")));
     rentalModel.setUpdated_at(LocalDateTime.now(ZoneId.of("UTC")));
     return ResponseEntity.status(HttpStatus.CREATED).body(createRentalService.execute(rentalModel));
@@ -49,5 +48,9 @@ public class RentalsController {
   @GetMapping
   public ResponseEntity<List<RentalsModel>> getAllParkingSpots() {
     return ResponseEntity.status(HttpStatus.OK).body(listRentalService.execute());
+  }
+
+  private LocalDateTime convertDateTime(Date date) {
+    return LocalDateTime.ofInstant(date.toInstant(), ZoneId.of("UTC"));
   }
 }
