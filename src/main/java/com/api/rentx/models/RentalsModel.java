@@ -1,6 +1,7 @@
 package com.api.rentx.models;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -29,10 +30,10 @@ public class RentalsModel {
   private Long total;
 
   @Column(nullable = false)
-  private LocalDateTime start_date;
+  private Date start_date;
 
   @Column(nullable = false)
-  private LocalDateTime end_date;
+  private Date end_date;
 
   @Column(nullable = false)
   private LocalDateTime created_at;
@@ -76,19 +77,19 @@ public class RentalsModel {
     this.total = total;
   }
 
-  public LocalDateTime getStart_date() {
+  public Date getStart_date() {
     return start_date;
   }
 
-  public void setStart_date(LocalDateTime start_date) {
+  public void setStart_date(Date start_date) {
     this.start_date = start_date;
   }
 
-  public LocalDateTime getEnd_date() {
+  public Date getEnd_date() {
     return end_date;
   }
 
-  public void setEnd_date(LocalDateTime end_date) {
+  public void setEnd_date(Date end_date) {
     this.end_date = end_date;
   }
 

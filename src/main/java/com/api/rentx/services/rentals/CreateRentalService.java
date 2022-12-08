@@ -2,9 +2,12 @@ package com.api.rentx.services.rentals;
 
 import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Service;
+
 import com.api.rentx.models.RentalsModel;
 import com.api.rentx.repositories.RentalRepository;
 
+@Service
 public class CreateRentalService {
   final RentalRepository rentalsRepository;
 
@@ -13,7 +16,7 @@ public class CreateRentalService {
   }
 
   @Transactional
-  public RentalsModel save(RentalsModel rental) {
+  public RentalsModel execute(RentalsModel rental) {
     return rentalsRepository.save(rental);
   }
 }

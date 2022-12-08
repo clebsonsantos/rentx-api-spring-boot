@@ -1,12 +1,8 @@
 package com.api.rentx.dtos;
 
-import java.util.UUID;
-
 import javax.validation.constraints.NotBlank;
 
 public class CarDTO {
-  @NotBlank
-  private UUID id;
   @NotBlank
   private String name;
   @NotBlank
@@ -21,14 +17,6 @@ public class CarDTO {
   private String thumbnail;
   @NotBlank
   private Number price;
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
 
   public String getName() {
     return name;

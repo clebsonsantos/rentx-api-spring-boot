@@ -25,7 +25,7 @@ public class CarController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<Object> getOneParkingSpot(@PathVariable(value = "id") UUID id) {
+  public ResponseEntity<Object> saveCar(@PathVariable(value = "id") UUID id) {
     Optional<CarModel> carOptional = listCarService.execute(id);
     if (!carOptional.isPresent()) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Car not found.");
