@@ -36,6 +36,11 @@ public class RentalsController {
   public ResponseEntity<Object> saveNewRental(@RequestBody RentalsDTO rentals) {
     var rentalModel = new RentalsModel();
     BeanUtils.copyProperties(rentals, rentalModel);
+
+    LocalDateTime startDate = LocalDateTime.ofInstant(rentals.getStart_date().toInstant(), ZoneId.of("UTC"));
+    LocalDateTime endDate = LocalDateTime.ofInstant(rentals.getEnd_date().toInstant(), ZoneId.of("UTC"));
+    rentalModel.setStart_date(startDate);
+    rentalModel.setEnd_date(endDate);
     rentalModel.setCreated_at(LocalDateTime.now(ZoneId.of("UTC")));
     rentalModel.setUpdated_at(LocalDateTime.now(ZoneId.of("UTC")));
     return ResponseEntity.status(HttpStatus.CREATED).body(createRentalService.execute(rentalModel));
