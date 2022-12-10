@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.rentx.dtos.RentalResponseDTo;
 import com.api.rentx.dtos.RentalsDTO;
 import com.api.rentx.models.RentalsModel;
 import com.api.rentx.services.rentals.CreateRentalService;
@@ -46,7 +47,7 @@ public class RentalsController {
   }
 
   @GetMapping
-  public ResponseEntity<List<RentalsModel>> getAllParkingSpots() {
+  public ResponseEntity<List<RentalResponseDTo>> listRentals() {
     return ResponseEntity.status(HttpStatus.OK).body(listRentalService.execute());
   }
 
