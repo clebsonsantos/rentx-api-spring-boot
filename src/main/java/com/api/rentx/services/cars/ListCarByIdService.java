@@ -1,5 +1,6 @@
 package com.api.rentx.services.cars;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -18,5 +19,9 @@ public class ListCarByIdService {
 
   public Optional<CarModel> execute(UUID carId) {
     return carRepository.findById(carId);
+  }
+
+  public List<CarModel> findAll() {
+    return carRepository.findAll();
   }
 }
