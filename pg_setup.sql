@@ -1,38 +1,4 @@
--- drop table accessories;
--- drop table photos;
--- drop table cars;
-
--- CREATE TABLE
---   cars (
---     id UUID,
---     name varchar(255),
---     brand varchar(255),
---     about varchar(255),
---     period varchar(255),
---     price numeric NOT NULL,
---     fuel_type varchar(255),
---     thumbnail varchar(255),
---     created_at timestamp NOT NULL DEFAULT (now()),
---     updated_at timestamp NOT NULL DEFAULT (now())
---   );
-
--- create table accessories (id UUID, type varchar(255), name varchar(255));
--- create table photos (id UUID, photo varchar(255));
-
--- ALTER TABLE
---   public.cars
--- ADD
---   CONSTRAINT cars_pkey PRIMARY KEY (id);
-
--- ALTER TABLE
---   public.accessories
--- ADD
---   CONSTRAINT accessories_pkey PRIMARY KEY (id);
-
--- ALTER TABLE
---   public.photos
--- ADD
---   CONSTRAINT photos_pkey PRIMARY KEY (id);
+-- CREATE DATABASE rentx;
 
 insert into cars (about, brand, created_at, fuel_type, id, name, period, price, thumbnail, updated_at) values 
     ('O carro ainda tem sistema de tração nas quatro rodas Quattro com diferencial traseiro esportivo de série. De acordo com a Audi, ele faz o mesmo em 3,8 segundos na Sportback.', 'Audi', CURRENT_TIMESTAMP, 'electric_motor', '535e8de8-721b-4bac-8b72-7d29be7da467', 'RS 5 Coupé', 'Ao dia', 120, 'https://storage.googleapis.com/golden-wind/ignite/react-native/thumbnails/1.png', CURRENT_TIMESTAMP),
@@ -102,8 +68,16 @@ INSERT INTO photos (id, photo) VALUES
 
 insert into cars_accessories (car_id, accessorie_id) values
 ('49983f6c-a46a-4dfd-a86e-425b8c72e086', '03b97309-c7e7-438f-ae69-80e786f4f414'),
-('ffb71f55-818a-48b1-b7d2-2efc406ede25', 'e39620b8-f69c-4f0f-87e4-44f1c4e99c13');
+('ffb71f55-818a-48b1-b7d2-2efc406ede25', 'e39620b8-f69c-4f0f-87e4-44f1c4e99c13'),
+('52930821-cbea-4b05-9f45-7c02b1bb0d8c', '8de5cb67-b28f-429f-92bb-09470510115d'),
+('535e8de8-721b-4bac-8b72-7d29be7da467', '61468a62-2cf9-4d34-8854-eaaee139534d'),
+('508e7193-0078-4615-9071-920b59038fda', 'a1365e20-654b-4e32-b857-ddbc2d35f08d'),
+('59626707-88c5-4877-9350-07f372c0905a', '58c4d4ff-4815-4aaa-95a6-a1d709b314f1');
 
 insert into cars_photos (car_id, photo_id) values
 ('49983f6c-a46a-4dfd-a86e-425b8c72e086', '38ea722f-5296-4cd8-a00f-d5341c538a2e'),
-('ffb71f55-818a-48b1-b7d2-2efc406ede25', '3a146128-76a4-4c14-83fc-6a070b0f6fe6');
+('ffb71f55-818a-48b1-b7d2-2efc406ede25', '3a146128-76a4-4c14-83fc-6a070b0f6fe6'),
+('52930821-cbea-4b05-9f45-7c02b1bb0d8c', '404d9db0-fa8a-46db-936f-f20eb7f6503f'),
+('535e8de8-721b-4bac-8b72-7d29be7da467', 'c1fd3b4c-8414-4f23-9a65-c15dbcfee230'),
+('508e7193-0078-4615-9071-920b59038fda', '3a146128-76a4-4c14-83fc-6a070b0f6fe6'),
+('59626707-88c5-4877-9350-07f372c0905a', '5bbeb780-b61e-400b-b071-5b03d6f639ae');
